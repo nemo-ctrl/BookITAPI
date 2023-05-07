@@ -1,0 +1,800 @@
+:root{
+    
+    --black:#000000;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Heebo', sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+    
+}
+
+body, html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+    height: 100vh;
+
+}
+
+section {
+    background: #E4D4C8;
+    padding: 2rem 9%;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.btn{
+    margin-top: 1rem;
+    display:inline-flex;
+    font-size: 1.3rem;
+    color:#fff;
+    background: #A47551;
+    border-radius: .5rem;
+    cursor: pointer;
+    padding:.6rem 1rem;
+}
+
+.btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+    letter-spacing: .1rem;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #F4EFEB;
+    padding: 1rem 7%;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo{
+    color:var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .logo i{
+    color:var(--black);
+}
+
+header .navbar a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color:var(--light-color);
+    border-bottom: 3px solid transparent;
+}
+
+header .navbar a:hover{
+    border-bottom:3px solid #666;
+}
+
+header .navbar a:active{
+    border-bottom:3px solid#666;
+}
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--black);
+}
+
+ /* Benjarong */
+
+.benjarong .benjarongcontainer .benjarongwrapper .benjarongslide .benjarongcontent img{
+    padding-top: 7rem;
+}
+
+.benjarongcontent h2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+.benjarongcontent .fa-star {
+    color: #0FA958;
+    font-size: 2rem;
+  }
+
+.benjarong .benjarongcontainer .benjarongwrapper h2 {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--black);
+     text-align: left;
+  }
+  
+.benjarong .benjarongcontainer .benjarongwrapper p {
+    font-size: 2rem;
+    color: var(--gray);
+    text-align: left;
+  }
+
+  .benjarong .benjarongcontainer .benjarongwrapper .benjarongslide .benjarongcontent .reserve-btn {
+    margin-top: 1rem;
+    padding:1rem 1rem;
+    color:#fff;
+    background: #A47551;
+    font-size: 2rem;
+    border: none;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+    font-weight: 530;
+    
+}
+.benjarong .benjarongcontainer .benjarongwrapper .benjarongslide .benjarongcontent  .reserve-btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+    letter-spacing: .1rem;
+}
+
+.benjarong .benjarongcontainer .benjarongwrapper .benjarongslide .benjarongcontent .reserve-btn {
+    float: right;
+}
+
+  .benjarongcontent2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px;
+    /* background-color: #F4EFEB; */
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .benjarongcontent2 h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 2rem;
+  }
+
+  .benjarongcontent2 h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .benjarongcontent2 td{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .benjarongcontent2 p {
+    margin-bottom: 10px;
+    font-size: .5rem;
+    text-align: left;
+  }
+  
+  .benjarongcontent2 a {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .fa-location-dot, .fa-phone, .fa-envelope {
+    margin-right: 5px;
+  }
+  
+  /* Nonya Cafe */
+  .nonya .nonyacontainer .nonyawrapper .nonyaslide .nonyacontent img{
+    padding-top: 7rem;
+}
+
+.nonyacontent h2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+.nonyacontent .fa-star {
+    color: #0FA958;
+    font-size: 2rem;
+  }
+
+.nonya .nonyacontainer .nonyawrapper h2 {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--black);
+     text-align: left;
+  }
+  
+.nonya .nonyacontainer .nonyawrapper p {
+    font-size: 2rem;
+    color: var(--gray);
+    text-align: left;
+  }
+
+  .nonya .nonyacontainer .nonyawrapper .nonyaslide .nonyacontent .reserve-btn {
+    margin-top: 1rem;
+    padding:1rem 1rem;
+    color:#fff;
+    background: #A47551;
+    font-size: 2rem;
+    border: none;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+    font-weight: 530;
+    
+}
+.nonya .nonyacontainer .nonyawrapper .nonyaslide .nonyacontent .reserve-btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+    letter-spacing: .1rem;
+}
+
+.nonya .nonyacontainer .nonyawrapper .nonyaslide .nonyacontent .reserve-btn {
+    float: right;
+}
+
+  .nonyacontent2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px;
+    /* background-color: #F4EFEB; */
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .nonyacontent2 h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 2rem;
+  }
+
+  .nonyacontent2 h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .nonyacontent2 td{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .nonyacontent2 p {
+    margin-bottom: 10px;
+    font-size: .5rem;
+    text-align: left;
+  }
+  
+  .nonyacontent2 a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  /* Cafe 1228  */
+
+.cafe1228 .cafe1228container .cafe1228wrapper .cafe1228slide .cafe1228content img{
+    padding-top: 7rem;
+}
+
+.cafe1228content h2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+.cafe1228content .fa-star {
+    color: #0FA958;
+    font-size: 2rem;
+  }
+
+.cafe1228content .fa-star-half-alt {
+    color: #0FA958;
+    font-size: 2rem;
+  }
+
+.cafe1228 .cafe1228container .cafe1228wrapper h2 {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--black);
+     text-align: left;
+  }
+  
+  .cafe1228 .cafe1228container .cafe1228wrapper p {
+    font-size: 2rem;
+    color: var(--gray);
+    text-align: left;
+  }
+
+  .cafe1228 .cafe1228container .cafe1228wrapper .cafe1228slide .cafe1228content .reserve-btn {
+    margin-top: 1rem;
+    padding:1rem 1rem;
+    color:#fff;
+    background: #A47551;
+    font-size: 2rem;
+    border: none;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+    font-weight: 530;
+    
+}
+.cafe1228 .cafe1228container .cafe1228wrapper .cafe1228slide .cafe1228content .reserve-btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+    letter-spacing: .1rem;
+}
+
+.cafe1228 .cafe1228container .cafe1228wrapper .cafe1228slide .cafe1228content .reserve-btn {
+    float: right;
+}
+
+  .cafe1228content2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px;
+    /* background-color: #F4EFEB; */
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .cafe1228content2 h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 2rem;
+  }
+
+  .cafe1228content2 h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .cafe1228content2 td{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .cafe1228content2 p {
+    margin-bottom: 10px;
+    font-size: .5rem;
+    text-align: left;
+  }
+  
+  .cafe1228content2 a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+
+   /* Cosmic Poblacion  */
+
+.cosmic .cosmiccontainer .cosmicwrapper .cosmicslide .cosmiccontent img{
+    padding-top: 7rem;
+}
+
+.cosmiccontent h2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+.cosmiccontent .fa-star {
+    color: #0FA958;
+    font-size: 2rem;
+  }
+
+  .cosmic .cosmiccontainer .cosmicwrapper h2 {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--black);
+     text-align: left;
+  }
+  
+  .cosmic .cosmiccontainer .cosmicwrapper p {
+    font-size: 2rem;
+    color: var(--gray);
+    text-align: left;
+  }
+
+  .cosmic .cosmiccontainer .cosmicwrapper .cosmicslide .cosmiccontent .reserve-btn {
+    margin-top: 1rem;
+    padding:1rem 1rem;
+    color:#fff;
+    background: #A47551;
+    font-size: 2rem;
+    border: none;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+    font-weight: 530;
+    
+}
+.cosmic .cosmiccontainer .cosmicwrapper .cosmicslide .cosmiccontent .reserve-btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+    letter-spacing: .1rem;
+}
+
+.cosmic .cosmiccontainer .cosmicwrapper .cosmicslide .cosmiccontent .reserve-btn {
+    float: right;
+}
+
+  .cosmiccontent2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px;
+    /* background-color: #F4EFEB; */
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .cosmiccontent2 h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 2rem;
+  }
+
+  .cosmiccontent2 h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .cosmiccontent2 td{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .cosmiccontent2 p {
+    margin-bottom: 10px;
+    font-size: .5rem;
+    text-align: left;
+  }
+  
+  .cosmiccontent2 a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+
+   /* Firefly Roofdeck  */
+
+.firefly .fireflycontainer .fireflywrapper .fireflyslide .fireflycontent img{
+    padding-top: 7rem;
+}
+
+.fireflycontent h2 {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  
+.fireflycontent .fa-star {
+    color: #0FA958;
+    font-size: 2rem;
+  }
+
+.fireflycontent .fa-star-half-alt {
+    color: #0FA958;
+    font-size: 2rem;
+  }
+
+  .firefly .fireflycontainer .fireflywrapper h2 {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--black);
+     text-align: left;
+  }
+  
+  .firefly .fireflycontainer .fireflywrapper p {
+    font-size: 2rem;
+    color: var(--gray);
+    text-align: left;
+  }
+
+  .firefly .fireflycontainer .fireflywrapper .fireflyslide .fireflycontent .reserve-btn {
+    margin-top: 1rem;
+    padding:1rem 1rem;
+    color:#fff;
+    background: #A47551;
+    font-size: 2rem;
+    border: none;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+    font-weight: 530;
+    
+}
+.firefly .fireflycontainer .fireflywrapper .fireflyslide .fireflycontent .reserve-btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+    letter-spacing: .1rem;
+}
+
+.firefly .fireflycontainer .fireflywrapper .fireflyslide .fireflycontent .reserve-btn {
+    float: right;
+}
+
+  .fireflycontent2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px;
+    /* background-color: #F4EFEB; */
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  .fireflycontent2 h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    padding-top: 2rem;
+  }
+
+  .fireflycontent2 h4 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .fireflycontent2 td{
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  
+  .fireflycontent2 p {
+    margin-bottom: 10px;
+    font-size: .5rem;
+    text-align: left;
+  }
+  
+  .fireflycontent2 a {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+
+ /* Popup container */
+.reservation-popup {
+  display: none;
+  position: fixed;
+  padding-top: 100px;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+
+.reservation-popup-content {
+  background-color: white;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 35%;
+  box-decoration-break: slice;
+}
+
+.reservation-popup-close {
+  color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.reservation-popup-close:hover, .confirmation-popup-close:hover, .reservation-popup-close:focus, .confirmation-popup-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  }
+
+.reservation-popup h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #A47551;
+}
+
+
+
+
+/* Form styles */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+label {
+  font-size: 16px;
+  font-weight: semibold;
+  margin-right: 10px;
+  text-align: left;
+  color: #666;
+  padding-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  }
+
+  .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  }
+
+input[type="date"],
+input[type="time"],
+select{
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 50%;
+
+}
+
+select[id="party-size"]{
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 50%;
+  align-items: left;
+  text-align: left;
+}
+
+select[id="party-type"]{
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 50%;
+  align-items: left;
+  text-align: left;
+}
+
+
+input[type="voucher"] {
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 50%;
+  align-items: left;
+  text-align: left;
+}
+
+select {
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 24px;
+
+}
+
+select[disabled] {
+  color: #ccc;
+}
+
+select option[value=""][disabled]:selected {
+  color: #999;
+}
+
+option[value=""][disabled][selected] {
+  display: none;
+  color:var(--light-color);
+}
+
+
+button[type="submit"] {
+  font-size: 16px;
+  padding: 10px;
+  background-color: #A47551;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button[type="submit"]:hover {
+  background-color: #D0B49F;
+}
+
+/* Confirmation popup */
+.confirmation-popup {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.8);
+}
+
+.confirmation-popup-content {
+  position: relative;
+  background-color:#E4D4C8;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 50%;
+  max-width: 700px;
+  font-size: 20px;
+}
+
+.confirmation-popup-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 30px;
+  margin: 10px 20px 20px 0;
+  cursor: pointer;
+  }
+  
+  .confirmation-popup-close:hover,
+  .confirmation-popup-close:focus {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+  }
+  
+  .confirmation-popup h3 {
+  margin-top: 0;
+  font-size: 20px;
+  }
+  
+  .confirmation-popup ul {
+  list-style-type: none;
+  font-size: 20px;
+  padding: 0;
+  }
+  
+  .confirmation-popup li {
+  margin-bottom: 10px;
+  font-size: 20px;
+  }
+  
+  .confirmation-popup span {
+  font-weight: bold;
+  font-size: 20px;
+  }

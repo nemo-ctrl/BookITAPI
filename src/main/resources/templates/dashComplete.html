@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookIT -Dashboard</title>
+
+    <!---font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../pageStyle.css">
+
+    <link rel="icon" href="../images/logo.png" type="image/png">
+</head>
+
+<style>
+
+:root{
+
+    --black:#000000;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Heebo', sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+
+}
+
+body, html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+    height: 100%;
+
+}
+
+section{
+    padding: 2rem 9%;
+    background: #F4EFEB;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    color:rgb(82, 58, 40);
+    background: rgb(228, 212, 200);
+    border-radius: 5px;
+    cursor: pointer;
+    padding:.8rem 1rem;
+}
+
+.btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #F4EFEB;
+    padding: 1rem 7%;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo{
+    color:var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .logo i{
+    color:var(--black);
+}
+
+header .navbar a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color:var(--light-color);
+    border-bottom: 3px solid transparent;
+}
+
+header .navbar a:hover{
+    border-bottom:3px solid #666;
+}
+
+header .navbar a:active{
+    border-bottom:3px solid#666;
+}
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.home .container .slide{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+
+}
+
+.home .container .slide .content{
+    flex-wrap: 1 1 45rem;
+}
+
+.home .container .slide .image{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.home .container .slide .image img{
+    max-width: 100%;
+    height: auto;
+    right: auto;
+
+}
+
+.home .container .slide .content h1{
+    color: var(--black);
+    font-size: 5.7rem;
+    font-weight:800;
+}
+
+.home .container .slide .content p{
+    color: var(--black);
+    font-size: 4.4rem;
+    font-weight: normal;
+}
+
+.home .container .slide{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+
+}
+
+/* adminDashboard */
+
+.dashboard .dashcontainer .dashslide .dashcontent{
+    flex-wrap: 1 1 45rem;
+}
+
+
+.dashboard .dashcontainer .dashslide .dashcontent h2{
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight:800;
+}
+
+.dashboard .dashcontainer .dashslide .dashcontent{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+}
+
+.dashboard .dashcontainer .dashslide .date{
+    flex-wrap: 1 1 45rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .date i{
+    color: rgb(91, 96, 201);
+    font-size: 1.3rem;
+    font-weight:800;
+}
+
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ; }
+[type="date"]::-webkit-inner-spin-button {
+    display: none; }
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0; }
+
+.dashboard .dashcontainer .dashslide .table{
+    display: table;
+}
+
+.dashboard .dashcontainer .dashslide .table table{
+    width: 100%;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    font-family: 'Roboto';
+    box-shadow: var(--box-shadow);
+}
+
+.dashboard .dashcontainer .dashslide .table th{
+    background-color: rgb(228, 212, 200, 0.9);
+    color: rgb(82, 58, 40);
+    font-size: 1.3rem;
+    font-weight:800;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.dashboard .dashcontainer .dashslide .table td{
+    background-color: rgb(228, 212, 200, 0.5);
+    color: rgb(82, 58, 40);
+    font-size: 1.3rem;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    text-align: center;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.dashboard .dashcontainer .dashslide .table{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .status{
+    flex-wrap: 1 1 45rem;
+    font-family: 'Inter';
+    padding-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .status a{
+    font-size: 1.7rem;
+    padding: .5rem 1.5rem;
+    color:var(--light-color);
+    font-weight: 650;
+    border-bottom: 1px solid transparent;
+    margin-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .status a:hover{
+    border-bottom:2px solid #666;
+    color: #5B60C9;
+}
+
+.dashboard .dashcontainer .dashslide .status a:active{
+    border-bottom:2px solid#666;
+    color: #5B60C9;
+}
+
+
+/* media queries */
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    header{
+        padding:1rem 2rem;
+    }
+}</style>
+
+<body>
+<!-- header section -->
+<header>
+    <a href="../adminIndex.html" class="logo"><i class="fas fa-utensils"></i> BookIT</a>
+
+    <nav class="navbar">
+        <a href="/admindashboard">Dashboard</a>
+        <a href="/restauBasics">Restaurant Basics</a>
+    </nav>
+
+    <!-- to edit -->
+    <div class="icons">
+        <a href="../adminIndex.html" class="logo"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+</header> 
+<!-- header section ends -->
+
+<!-- dashboard restaurant section -->
+<section class="dashboard" id="dashboard">
+    
+    <div class="dashcontainer">
+       
+        <div class="dashwrapper">
+
+            <div class="dashslide">
+                <div class="dashcontent">
+                    <h2><b>Dashboard</b> </h2>
+                    
+                </div>
+
+                <div class="status">
+                    <a href="/admindashboard"> Incoming </a>
+                    <a href="/admindashboardcomplete"><b style="color:brown;">Completed</b></a>
+                    <a href="/admindashboardcancel">Cancellations</a>
+                </div>
+
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Pax</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Status</th>
+                        </tr>
+                        <tr th:each="booking, index : ${bookings}">
+                            <td><b th:text="${booking.id}"></b></td>
+                            <td><i th:text="${booking.date}"></i></td>
+                            <td><i th:text="${booking.time}"></i></td>
+                            <td><b th:text="${booking.guestcount}"></b></td>
+                            <td><b th:text="${booking.user.name}"></b></td>
+                            <td><b th:text="${booking.user.phoneNumber}"></b></td>
+                            <td><i th:text="${booking.status}" style="color: rgb(0, 72, 255)"></i></td>
+                        </tr>
+                    </table>
+                </div>
+
+                
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TEST SMS</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<h1>TEST SMS</h1>
+<form id="sms-form">
+  <label for="to">To:</label>
+  <input type="text" id="to" name="to"><br>
+  <label for="body">Message:</label>
+  <input type="text" id="body" name="body"><br>
+  <button type="submit">Send SMS</button>
+</form>
+<script>
+        $(document).ready(function() {
+            $("#sms-form").submit(function(event) {
+                event.preventDefault();
+                var formData = {
+                    "to": $("#to").val(),
+                    "body": $("#body").val()
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "/sendSms",
+                    data: JSON.stringify(formData),
+                    contentType: "application/json",
+                    success: function() {
+                        alert("SMS sent successfully!");
+                    },
+                    error: function(xhr, status, error) {
+                        alert("Error sending SMS: " + xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

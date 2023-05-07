@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookIT -Restaurant Basics</title>
+
+    <!---font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../pageStyle.css">
+
+    <link rel="icon" href="../images/logo.png" type="image/png">
+</head>
+
+<style>
+
+:root{
+
+    --black:#000000;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Heebo', sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+
+}
+
+body, html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+    height: 100%;
+
+}
+
+section{
+    padding: 2rem 9%;
+    background: #F4EFEB;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.btn{
+    margin-top: 1rem;
+    margin-left: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    color:rgb(82, 58, 40);
+    background: rgb(228, 212, 200);
+    border-radius: 5px;
+    cursor: pointer;
+    padding:.8rem 1rem;
+}
+
+.btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #F4EFEB;
+    padding: 1rem 7%;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo{
+    color:var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .logo i{
+    color:var(--black);
+}
+
+header .navbar a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color:var(--light-color);
+    border-bottom: 3px solid transparent;
+}
+
+header .navbar a:hover{
+    border-bottom:3px solid #666;
+}
+
+header .navbar a:active{
+    border-bottom:3px solid#666;
+}
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.home .container .slide{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+
+}
+
+.home .container .slide .content{
+    flex-wrap: 1 1 45rem;
+}
+
+.home .container .slide .image{
+    display:flex;
+    justify-content: flex-end;
+}
+
+.home .container .slide .image img{
+    max-width: 100%;
+    height: auto;
+    right: auto;
+
+}
+
+.home .container .slide .content h1{
+    color: var(--black);
+    font-size: 5.7rem;
+    font-weight:800;
+}
+
+.home .container .slide .content p{
+    color: var(--black);
+    font-size: 4.4rem;
+    font-weight: normal;
+}
+
+.home .container .slide{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+
+}
+
+/* adminDashboard */
+
+.dashboard .dashcontainer .dashslide .dashcontent{
+    flex-wrap: 1 1 45rem;
+}
+
+
+.dashboard .dashcontainer .dashslide .dashcontent h2{
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight:800;
+}
+
+.dashboard .dashcontainer .dashslide .dashcontent{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+}
+
+.dashboard .dashcontainer .dashslide .date{
+    flex-wrap: 1 1 45rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .date i{
+    color: rgb(91, 96, 201);
+    font-size: 1.3rem;
+    font-weight:800;
+}
+
+[type="date"] {
+    background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ; }
+[type="date"]::-webkit-inner-spin-button {
+    display: none; }
+[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0; }
+
+.dashboard .dashcontainer .dashslide .table{
+    display: table;
+}
+
+.dashboard .dashcontainer .dashslide .table table{
+    width: 100%;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    font-family: 'Roboto';
+    box-shadow: var(--box-shadow);
+}
+
+.dashboard .dashcontainer .dashslide .table th{
+    background-color: rgb(228, 212, 200, 0.9);
+    color: rgb(82, 58, 40);
+    font-size: 1.3rem;
+    font-weight:800;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.dashboard .dashcontainer .dashslide .table td{
+    background-color: rgb(228, 212, 200, 0.5);
+    color: rgb(82, 58, 40);
+    font-size: 1.3rem;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    text-align: center;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.dashboard .dashcontainer .dashslide .table{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .status{
+    flex-wrap: 1 1 45rem;
+    font-family: 'Inter';
+    padding-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .status a{
+    font-size: 1.7rem;
+    padding: .5rem 1.5rem;
+    color:var(--light-color);
+    font-weight: 650;
+    border-bottom: 1px solid transparent;
+    margin-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .status a:hover{
+    border-bottom:2px solid #666;
+    color: #5B60C9;
+}
+
+.dashboard .dashcontainer .dashslide .status a:active{
+    border-bottom:2px solid#666;
+    color: #5B60C9;
+}
+
+/* incomingBookings */
+
+.bookings .bookingscontainer .bookingsslide .bookingscontent{
+    flex-wrap: 1 1 45rem;
+}
+
+.bookings .bookingscontainer .bookingsslide .bookingscontent h2{
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight:800;
+}
+
+.bookings .bookingscontainer .bookingsslide .bookingscontent{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+}
+
+.bookings .bookingscontainer .bookingsslide .status{
+    flex-wrap: 1 1 45rem;
+    font-family: 'Inter';
+    padding-top: 2rem;
+}
+
+.bookings .bookingscontainer .bookingsslide .status a{
+    font-size: 1.7rem;
+    padding: .5rem 1.5rem;
+    color:var(--light-color);
+    font-weight: 650;
+    border-bottom: 1px solid transparent;
+    margin-top: 2rem;
+}
+
+.bookings .bookingscontainer .bookingsslide .status a:hover{
+    border-bottom:2px solid #666;
+    color: #5B60C9;
+}
+
+.bookings .bookingscontainer .bookingsslide .status a:active{
+    border-bottom:2px solid#666;
+    color: #5B60C9;
+}
+
+.bookings .bookingscontainer .bookingswrapper .dashbox {
+    padding-right: 3rem;
+    padding-left: 3rem;
+    background-color: #E4D4C8;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0,0,0,.2);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+.bookings .bookingscontainer .bookingswrapper .dashbox img {
+    height: 5rem;
+    margin: 1rem 0;
+}
+
+
+.bookings .bookingscontainer .bookingswrapper .dashbox b {
+    margin-top: .5rem;
+    margin-left: 1rem;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--black);
+    text-align: left;
+  }
+
+.bookings .bookingscontainer .bookingswrapper .dashbox i{
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    color: var(--gray);
+    text-align: left;
+}
+
+.bookings .bookingscontainer .bookingswrapper .dashbox .see-btn {
+    margin-top: 2rem;
+    padding:.6rem 1rem;
+    color:#fff;
+    background: #A47551;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+}
+
+.bookings .bookingscontainer .bookingswrapper .dashbox input.see-btn {
+    float: right;
+}
+
+.bookings .bookingscontainer .bookingswrapper .dashbox .see-btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+}
+
+/* restauBasics */
+
+.rbasics .rbasicscontainer .rbasicsslide .rbasicscontent{
+    flex-wrap: 1 1 45rem;
+}
+
+
+.rbasics .rbasicscontainer .rbasicsslide .rbasicscontent h2{
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight:800;
+}
+
+
+.rbasics .rbasicscontainer .rbasicsslide .rbasicscontent{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+}
+
+.rbasics .rbasicscontainer .rbasicsslide .staffmem{
+    flex-wrap: 1 1 45rem;
+    color: rgb(91, 96, 201);
+    font-size: 2rem;
+    font-weight:650;
+    font-family: 'Inter';
+    padding-top: 2rem;
+}
+
+.rbasics .rbasicscontainer .rbasicsslide .staffmem i{
+    color: rgb(91, 96, 201);
+    font-size: 1.3rem;
+    font-weight:800;
+}
+
+
+.rbasics .rbasicscontainer .rbasicswrapper .rbasicsslide .staffmem .addstaff-btn {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    display: inline-block;
+    font-size: 1rem;
+    color:rgb(82, 58, 40);
+    background: rgb(228, 212, 200);
+    border-radius: 5px;
+    cursor: pointer;
+    padding:.8rem 1rem;
+
+}
+
+.rbasics .rbasicscontainer .rbasicswrapper .rbasicsslide .staffmem .addstaff-btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+}
+
+.rbasics .rbasicscontainer .rbasicsslide .table{
+    display: table;
+}
+
+.rbasics .rbasicscontainer .rbasicsslide .table table{
+    width: 100%;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    font-family: 'Roboto';
+    box-shadow: var(--box-shadow);
+}
+
+.rbasics .rbasicscontainer .rbasicsslide .table th{
+    background-color: rgb(228, 212, 200, 0.9);
+    color: rgb(82, 58, 40);
+    font-size: 1.3rem;
+    font-weight:800;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.rbasics .rbasicscontainer .rbasicsslide .table td{
+    background-color: rgb(228, 212, 200, 0.5);
+    color: rgb(82, 58, 40);
+    font-size: 1.3rem;
+    border: 2px solid;
+    border-color: #ffffff;
+    border-collapse: collapse;
+    text-align: center;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.rbasics .rbasicscontainer .rbasicswrapper .table img {
+    height: 8rem;
+    margin: 1rem 0;
+}
+
+.rbasics .rbasicscontainer .rbasicsslide .table{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+/* Popup container */
+.auth-popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .auth-popup-content {
+    position: relative;
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 700px;
+  }
+
+  .auth-popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    margin: 10px 20px 0 0;
+    cursor: pointer;
+  }
+
+  .auth-popup h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #A47551;
+  }
+
+  /* Form styles */
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+
+  }
+
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+
+  }
+
+ input[type="email"], input[type="number"] {
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+
+  }
+
+  select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 24px;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
+  select[disabled] {
+    color: #ccc;
+  }
+
+  select option[disabled]:first-of-type {
+    display: none;
+  }
+
+
+  button[type="submit"] {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #A47551;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #D0B49F;
+  }
+
+  /* Confirmation popup */
+  .newstaff-popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .newstaff-popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+  .newstaff-popup-content {
+    position: relative;
+    background-color:white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 50%;
+    max-width: 700px;
+    font-size: 20px;
+  }
+
+  .newstaff-popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    margin: 10px 20px 20px 0;
+    cursor: pointer;
+    }
+
+    .newstaff-popup-close:hover,
+    .newstaff-popup-close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    .newstaff-popup h3 {
+    margin-top: 0;
+    font-size: 20px;
+    }
+
+    .newstaff-popup ul {
+    list-style-type: none;
+    font-size: 20px;
+    padding: 0;
+    }
+
+    .newstaff-popup li {
+    margin-bottom: 10px;
+    font-size: 20px;
+    }
+
+    .newstaff-popup span {
+    font-weight: bold;
+    font-size: 20px;
+    }
+
+
+
+
+/* media queries */
+@media (max-width:991px){
+
+    html{
+        font-size: 55%;
+    }
+
+    header{
+        padding:1rem 2rem;
+    }
+}</style>
+
+<body>
+<!-- header section -->
+<header>
+    <a href="../adminIndex.html" class="logo"><i class="fas fa-utensils"></i> BookIT</a>
+
+    <nav class="navbar">
+        <a href="/admindashboard">Dashboard</a>
+        <a href="/restauBasics">Restaurant Basics</a>
+    </nav>
+
+    <!-- to edit -->
+    <div class="icons">
+        <a href="../adminIndex.html" class="logo"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+</header> 
+<!-- header section ends -->
+
+<!-- restaurant basics section -->
+<section class="rbasics" id="rbasics">
+    
+    <div class="rbasicscontainer">
+       
+        <div class="rbasicswrapper">
+
+            <div class="rbasicsslide">
+                <div class="rbasicscontent">
+                    <h2><b>Restaurant Basics</b> </h2>
+                </div>
+
+                <div class="staffmem">
+                    Staff Members
+                    <a href="#" class="addstaff-btn">Add New +</a>
+                </div>
+                <div class="table">
+                    <table>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                        </tr>
+                        <tr th:each="staffList, index : ${staffList}">
+                            <td><b th:text="${staffList.id}"></b></td>
+                            <td><i th:text="${staffList.name}"></i></td>
+                            <td><i th:text="${staffList.role}"></i></td>
+                            <td><b th:text="${staffList.phone}"></b></td>
+                            <td><i th:text="${staffList.email}" style="color: rgb(0, 72, 255)"></i></td>
+                        </tr>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+<!------- popup confirmation box ------->
+    <div id="newstaff-popup" class="newstaff-popup">
+    <div class="newstaff-popup-content">
+        <span class="newstaff-popup-close">&times;</span>
+        <h2>Add New Staff</h2>
+        <br>
+
+        <form action="#">  
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="role">Role:</label>
+                <select id="role" name="role" required>
+                    <option value="" disabled selected>Select role</option>
+                    <option value="staff">Staff </option>
+                  </select>
+
+                <label for="phone">Phone:</label>
+                <input type="number" id="phone" name="phone" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button id="confirm-btn" type="submit">Confirm</button>
+        </form>
+    </div>
+</div>
+
+</section>
+
+<script>
+    // Get the popup elements
+    var newStaffPopup = document.getElementById("newstaff-popup");
+
+    // Get the buttons that open the popups
+    var newStaffBtn = document.getElementsByClassName("addstaff-btn")[0];
+
+    // Get the close buttons
+    var newStaffClose = document.getElementsByClassName("newstaff-popup-close")[0];
+
+    // When the user clicks on the add staff button, open the newstaff popup
+    newStaffBtn.onclick = function() {
+      newStaffPopup.style.display = "block";
+    }
+
+    // When the user clicks on the close button, close the newstaff popup
+    newStaffClose.onclick = function() {
+      newStaffPopup.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the popups, close them
+    window.onclick = function(event) {
+      if (event.target == newStaffPopup) {
+        newStaffPopup.style.display = "none";
+      }
+    }
+
+  // When the user submits the form, add a new staff member
+  var form = document.querySelector('#newstaff-popup form');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    var name = document.getElementById('name').value;
+    var role = document.getElementById('role').value;
+    var phone = document.getElementById('phone').value;
+    var email = document.getElementById('email').value;
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    var data = {
+      name: name,
+      role: role,
+      phone: phone,
+      email: email,
+      username: username,
+      password: password
+    };
+
+    fetch('/add-staff', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(function() {
+      // clear the form inputs
+      document.getElementById('name').value = '';
+      document.getElementById('role').selectedIndex = 0;
+      document.getElementById('phone').value = '';
+      document.getElementById('email').value = '';
+      document.getElementById('username').value = '';
+      document.getElementById('password').value = '';
+
+      // close the popup
+      newStaffPopup.style.display = "none";
+
+      // refresh the page
+      location.reload();
+    })
+    .catch(function(error) {
+      console.error('Error:', error);
+    });
+  });
+</script>
+
+</body>
+</html>

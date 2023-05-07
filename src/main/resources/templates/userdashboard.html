@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookIT - Dashboard</title>
+
+    <!---font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" th:href="@{../static/user/pages/style.css}">
+
+    <link rel="icon" href="" type="image/png">
+</head>
+
+<style>:root{
+
+    --black:#000000;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Heebo', sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+
+}
+
+  /* Cancellation popup */
+  .cancellation-popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+
+  .cancellation-popup {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+.cancellation-popup-content {
+    text-align:center;
+    position: relative;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 700px;
+    font-size: 20px;
+}
+
+
+  .cancellation-popup-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 30px;
+    margin: 10px 20px 20px 0;
+    cursor: pointer;
+    }
+
+    .cancellation-popup-close:hover,
+    .cancellation-popup-close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+    }
+
+    .cancellation-popup h3 {
+    margin-top: 0;
+    font-size: 20px;
+    }
+
+    .cancellation-popup ul {
+    list-style-type: none;
+    font-size: 20px;
+    padding: 0;
+    }
+
+    .cancellation-popup li {
+    margin-bottom: 10px;
+    font-size: 20px;
+    }
+
+    .cancellation-popup span {
+    font-weight: bold;
+    font-size: 20px;
+    }
+
+body, html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+    height: 100%;
+
+}
+
+section{
+    padding: 2rem 9%;
+    background: #F4EFEB;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+
+.btn{
+    margin-top: 1rem;
+    display:inline-flex;
+    font-size: 1.3rem;
+    color:#fff;
+    background: #A47551;
+    border-radius: .5rem;
+    cursor: pointer;
+    padding:.6rem 1rem;
+}
+
+.btn:hover{
+    color:var(--black);
+    background: #D0B49F;
+    letter-spacing: .1rem;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #F4EFEB;
+    padding: 1rem 7%;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo{
+    color:var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .logo i{
+    color:var(--black);
+}
+
+.text-reason {
+    position:relative;
+    font-family: 'Arial';
+    font-size: 14px;
+    border: solid 1px #A47551;
+    border-radius: 10px;
+    background-color:;
+    width: 70%;
+    height: 200px;
+    color: #000;
+}
+
+header .navbar a{
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    color:var(--light-color);
+    border-bottom: 3px solid transparent;
+}
+
+header .navbar a:hover{
+    border-bottom:3px solid #666;
+}
+
+header .navbar a:active{
+    border-bottom:3px solid#666;
+}
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--black);
+}
+
+.dashboard .dashcontainer .dashslide .dashcontent{
+    flex-wrap: 1 1 45rem;
+}
+
+
+.dashboard .dashcontainer .dashslide .dashcontent h2{
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight:800;
+}
+
+
+.dashboard .dashcontainer .dashslide .dashcontent{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+}
+
+.dashboard .dashcontainer .dashslide .status{
+    flex-wrap: 1 1 45rem;
+    font-family: 'Inter';
+    padding-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .status a{
+    font-size: 1.7rem;
+    padding: .5rem 1.5rem;
+    color:var(--light-color);
+    font-weight: 650;
+    border-bottom: 1px solid transparent;
+    margin-top: 2rem;
+}
+
+.dashboard .dashcontainer .dashslide .status a:hover{
+    border-bottom:2px solid #666;
+    color: #5B60C9;
+}
+
+.dashboard .dashcontainer .dashslide .status a:active{
+    border-bottom:2px solid#666;
+    color: #5B60C9;
+}
+
+.dashboard .dashcontainer .dashwrapper .dashbox {
+    padding: 2.5rem;
+    background-color: #E4D4C8;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0,0,0,.2);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+  }
+
+
+  .dashboard .dashcontainer .dashwrapper .dashbox h3 {
+    margin-top: 1rem;
+    margin-bottom: .5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--black);
+     text-align: left;
+  }
+
+  .dashboard .dashcontainer .dashwrapper .dashbox p {
+    font-size: 1.1rem;
+    color: var(--gray);
+    text-align: left;
+  }
+  .dashboard .dashcontainer .dashwrapper .dashbox .cancel-btn {
+    margin-top: 1rem;
+    padding:.6rem 1rem;
+    color:#fff;
+    background: #A47551;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: .5rem;
+    transition: all .3s ease-in-out;
+}
+
+.dashboard .dashcontainer .dashwrapper .dashbox input.cancel-btn {
+    float: right;
+
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  }
+
+  .modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  max-width: 500px;
+  }
+
+  .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  }
+
+  .close {
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  }
+
+  .close:hover,
+  .close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  }
+
+  .form-group {
+  margin-top: 20px;
+  }
+
+  button {
+  background-color: #A47551;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  }
+
+  button:hover {
+  background-color: #D0B49F;
+  }
+
+
+  /* Form styles */
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+
+  }
+
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+
+  }
+
+ input[type="email"], input[type="number"] {
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+
+  }
+
+  select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 24px;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
+  select[disabled] {
+    color: #ccc;
+  }
+
+  select option[disabled]:first-of-type {
+    display: none;
+  }
+
+
+  button[type="submit"] {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #A47551;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #D0B49F;
+  }
+
+}
+
+
+}</style>
+
+<body>
+<!-- header section -->
+<header>
+    <a href="../index.html" class="logo"><i class="fas fa-utensils"></i> BookIT</a>
+
+    <nav class="navbar">
+        <a href="./browse.html">Browse Restaurants</a>
+        <a href="/userdashboard">Dashboard</a>
+    </nav>
+
+    <!-- to edit -->
+    <div class="icons">
+        <a href="/index.html" class="logo"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+</header>
+<!-- header section ends -->
+
+<!-- dashboard restaurant section -->
+<section class="dashboard" id="dashboard">
+
+    <div class="dashcontainer">
+
+        <div class="dashwrapper">
+
+            <div class="dashslide">
+                <div class="dashcontent">
+                    <h2><b>My Bookings</b></h2>
+                    <br>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <br>
+            <br>
+
+            <!-- add booking details here -->
+            <div class="dashbox-container">
+                <!-- use Thymeleaf to loop through the bookings and display them -->
+                <div th:each="booking : ${bookings}" class="dashbox">
+                    <h3 th:text="${booking.resname}">Restaurant Name</h3>
+                    <p th:text="'You reserved a table for ' + ${booking.guestcount} + ' guests on ' + ${booking.date} + ' at ' + ${booking.time}"></p>
+                    <p th:text="'Reservation type: ' + ${booking.reservationtype}"></p>
+                    <p class="booking-id" th:text="${booking.id}" style="display:none"></p>
+                    <p th:if="${booking.vouchercode != null}" th:text="'Voucher code: ' + ${booking.vouchercode}"></p>
+                    <div class="staffmem">
+                        Staff Members
+                        <a href="#" class="addstaff-btn">Add New +</a>
+                    </div>
+                    <button class="cancel-btn" id="cancel-btn">Cancel </button>
+                </div>
+                </div>
+
+
+    </div>
+        </div>
+
+</section>
+<!---- Cancellation Popup ---->
+<div id="cancellation-popup" class="cancellation-popup">
+    <div class="cancellation-popup-content">
+        <span class="cancellation-popup-close">&times;</span>
+        <h2>Cancellation Form</h2>
+        <br>
+
+        <form action="#" id="cancellation-form">
+
+            <input type="hidden" id="booking-id-input" name="bookingId" />
+            <label for="reason">Enter cancellation reason</label><br><br><br>
+            <textarea id="reason" class="text-reason" name="reason" rows="4" cols="50" placeholder="Please provide a reason for your cancellation. Thank you. "></textarea><br>
+            <br><input type="submit" class="btn" value="Cancel" onclick="cancelReservation()"></input>
+        </form>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    // Get the popup elements
+    var cancellationPopup = document.getElementById("cancellation-popup");
+
+    // Get the buttons that open the popups
+    var cancelBtns = document.getElementsByClassName("cancel-btn");
+
+    // Get the close buttons
+    var cancelClose = document.getElementsByClassName("cancellation-popup-close")[0];
+
+    // When the user clicks on a cancel button, open the cancellation popup
+    for (var i = 0; i < cancelBtns.length; i++) {
+        cancelBtns[i].onclick = function() {
+            console.log("Cancel button clicked");
+            cancellationPopup.style.display = "block";
+
+            // Set the booking ID in the cancellation form
+            var bookingId = this.parentNode.querySelector(".booking-id").innerHTML;
+            document.getElementById("booking-id-input").value = bookingId;
+        }
+    }
+
+    // When the user clicks on the close button, close the cancellation popup
+    cancelClose.onclick = function() {
+        console.log("Close button clicked");
+        cancellationPopup.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the popup, close it
+    window.onclick = function(event) {
+        if (event.target == cancellationPopup) {
+            console.log("Outside click detected");
+            cancellationPopup.style.display = "none";
+        }
+    }
+
+    // Function to clear the input fields of the cancellation form
+    function clearCancellationForm() {
+        document.getElementById("cancellation-form").reset();
+    }
+
+    // Function to handle the cancellation form submission
+    function cancelReservation() {
+        console.log("Cancel form submitted");
+        var bookingId = document.getElementById("booking-id-input").value;
+        var reason = document.getElementById("reason").value;
+
+        // Make a POST request to the server to cancel the booking
+        fetch('/cancelbooking', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'bookingId=' + encodeURIComponent(bookingId) +
+                '&reason=' + encodeURIComponent(reason)
+        })
+        .then(function(response) {
+            // If the request was successful, reload the page to see the updated bookings
+            if (response.ok) {
+                console.log("Booking cancelled successfully");
+                location.reload();
+            }
+        })
+        .catch(function(error) {
+            console.error('Error cancelling booking:', error);
+        });
+    }
+
+    // Add event listener to cancellation form to call cancelReservation() function on submit
+    document.getElementById("cancellation-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        cancelReservation();
+    });
+</script>
+
+
+
+</body>
+</html>

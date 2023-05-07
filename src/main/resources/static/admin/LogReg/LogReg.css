@@ -1,0 +1,203 @@
+:root{
+    
+    --black:#000000;
+    --light-color:#666;
+    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
+}
+
+*{
+    font-family: 'Heebo', sans-serif;
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+    
+}
+
+body {
+    background-image: url('../images/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+header{
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: #F4EFEB;
+    padding: 1rem 7%;
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo{
+    color:var(--black);
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+header .logo i{
+    color:var(--black);
+}
+
+
+header .icons i,
+header .icons a{
+    cursor: pointer;
+    margin-left: .5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--black);
+}
+
+
+/* User Login and Registration CSS */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image {
+    padding-top: 80px;
+    margin-right: 40px;
+    padding-right: 40px;
+}
+
+.image img {
+    width: 650px;
+    height: 600px;
+  }
+
+
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    padding-top: 30px;
+}
+
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    padding: 20px;
+
+}
+
+form h1 {
+    font-size: 35px;
+    text-align: left;
+    margin-bottom: 2px;
+    font-weight: 900;
+}
+
+form label {
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+form input[type="text"],
+form input[type="password"] {
+    font-size: 16px;
+    padding: 10px;
+    margin-bottom: 3px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form input[type="submit"] {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #A47551;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+    background-color:#D0B49F;
+}
+
+.link {
+    font-size: 14px;
+    color: #999;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .link:hover {
+    color: #555;
+    text-decoration: underline;
+  }
+
+
+/* Login CSS */
+
+form button[type="button"] {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #A47551;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button[type="button"]:hover {
+    background-color:#D0B49F;
+}
+
+form button[type="submit"] {
+    font-size: 16px;
+    padding: 10px;
+    background-color: #A47551;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Style the form submit button on hover */
+form button[type="submit"]:hover {
+    background-color:#D0B49F;
+
+}
+
+select {
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 24px;
+    font-size: 15px;
+    padding: 10px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+  }
+
+  select[disabled] {
+    color: #ccc;
+  }
+
+  select option[disabled]:first-of-type {
+    display: none;
+  }

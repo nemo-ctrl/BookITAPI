@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="LogReg.css">
+
+    <link rel="icon" href="../images/logo.png" type="image/png">
+</head>
+<body>
+<header>
+    <a href="#" class="logo"><i class="fas fa-utensils"></i> BookIT</a>
+
+</header>
+<div class="container">
+    <div class="image">
+        <img src="../images/home icon.png" alt="">
+    </div>
+    <form class="user-form">
+        <h1>Welcome</h1>
+        <h1>Back!</h1>
+        <br>
+        <input type="text" name="username" id="username" placeholder="Enter username" required><br>
+        <input type="password" name="password" id="password" placeholder="Enter password"required><br>
+        <p id="error-message" style="color: red; display: none;">Please enter a username and password</p>
+        <a href="UserReg.html" class="link">Don't have an account yet? Register Now</a>
+        <button type="button" id="login-button">Login</button>
+    </form>
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('#login-button').click(function(event) {
+      // Prevent default form submission
+      event.preventDefault();
+
+      // Get form data and convert to JSON format
+      var formData = {
+        'username': $('input[name=username]').val(),
+        'password': $('input[name=password]').val()
+      };
+
+      // Send AJAX POST request to log in user
+      $.ajax({
+        type: 'POST',
+        url: '/user-login',
+        contentType: 'application/x-www-form-urlencoded',
+        data: {
+          'username': $('input[name=username]').val(),
+          'password': $('input[name=password]').val()
+        },
+        success: function(response) {
+            if (response.redirect) {
+                window.location.replace(response.redirect);
+            } else if (response.error) {
+                alert(response.error);
+            }
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookIT -Browse Restaurants</title>
+
+    <!---font-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" href="../../images/logo.png" type="image/png">
+</head>
+
+<body>
+<!-- header section -->
+<header>
+    <a href="../../index.html" class="logo"><i class="fas fa-utensils"></i> BookIT</a>
+
+    <nav class="navbar">
+        <a href="../browse.html">Browse Restaurants</a>
+        <a href="/userdashboard">Dashboard</a>
+    </nav>
+
+    <!-- to edit -->
+    <div class="icons">
+        <a href="../index.html" class="logo"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+</header> 
+<!-- header section ends -->
+
+<!-- browse restaurant section -->
+<section class="firefly" id="firefly">
+    
+    <div class="fireflycontainer">
+
+        <div class="fireflywrapper">
+
+            <div class="fireflyslide">
+                <div class="fireflycontent">
+                    <img src="../../images/firefly frame.png" alt="">
+                    <h2>Firefly Roofdeck Restaurant  <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>   
+                    </h2> 
+                    <a href="#" class="reserve-btn">Reserve Now</a>
+                    <p>Chinese, American, Cafe, Asian, Filipino</p>
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <div class="fireflycontent2">
+                    <table>
+                        <tr>
+                            <td>
+                                <h4>About</h4>
+                                <p>Firefly Roofdeck hailed as one of the best views of Makati City, it offers a wide selection of al fresco dining and is located on the 32nd floor of the City Garden Grand Hotel. </p>
+                                <p>With the breathtaking and relaxing view of the Makati Skyline, treat yourself with their signature Mojitos and Daiquiris and pair it with their best-selling barbecues.</p>
+                            </td>
+                            <td>
+                                <br>
+                                <br>
+                                <br>
+                                <h4>Details</h4>
+                                <h3>Cuisines</h3>
+                                <p>Chinese, American, Cafe, Asian, Filipino</p>
+                                
+                                <h3>MEALS</h3>
+                                <p>Lunch, Dinner, Drinks</p>
+
+                                <h3>FEATURES</h3>
+                                <p>Reservations, Outdoor Seating, Seating, Parking Available, Validated Parking, Valet Parking, Television, Wheelchair Accessible, Serves Alcohol, Full Bar, Free Wifi, Accepts Credit Cards, Table Service, Wine and Beer</p>
+
+                            </td>
+                            <td>
+                                <h4>Location and Contact</h4>
+                                <div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=8008 Makati Ave. cor. Kalayaan Ave., 32/F City Garden Grand Hotel, Makati, 1200 Metro Manila&t=&z=16&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://2yu.co"></a><br><style>.mapouter{position:relative;text-align:right;height:100%;width:100%;}</style><a href="https://embedgooglemap.2yu.co/"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:100%;width:100%;}</style></div></div>
+                                <p> <i class="fa-solid fa-location-dot"></i>Makati Avenue Corner Kalayaan Avenue 32 Flr. City Garden Grand Hotel, Makati, Luzon 1212 Philippines</p>
+                                <br>
+                                <p><i class="fa-solid fa-phone"></i>+632 8554 3429</p>
+                                <br>
+                                <p><i class="fa-regular fa-envelope"></i>fnb@citygardengrandhotel.com</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+           
+
+        </div>
+
+        
+
+    </div>
+
+
+<!-- popup reservation box -->
+<div id="reservation-popup" class="reservation-popup">
+    <div class="reservation-popup-content">
+      <span class="reservation-popup-close">&times;</span>
+  <h2>Firefly Roofdeck Restaurant</h2>
+  <form action="#">  
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+    <br>
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" required>
+    <br>
+    <br>
+    <label for="party-size">Guests:</label>
+    <select id="party-size" name="party-size" required>
+      <option value="" disabled selected>--</option>
+      <option value="1">1 </option>
+      <option value="2">2 </option>
+      <option value="3">3 </option>
+      <option value="4">4 </option>
+      <option value="5">5 </option>
+      <option value="6">6 </option>
+      <option value="7">7 </option>
+      <option value="8">8 </option>
+      <option value="9">9 </option>
+      <option value="10">10+</option>
+    </select>
+    <br>
+    <label for="party-type">Reservation Type:</label>
+    <select id="party-type" name="party-type" required>
+      <option value="" disabled selected>Select a reservation type</option>
+      <option value="Birthday">Birthday </option>
+      <option value="Anniversary">Anniversary </option>
+      <option value="Valentines">Valentines </option>
+      <option value="Holiday">Holiday </option>
+      <option value="Others">Others </option>
+    </select>
+    
+    <label for="voucher">Voucher Code:</label>
+    <input type="text" id="voucher" name="voucher" >
+
+    <button id="continue-btn" type="submit">Reserve</button>
+  </form>
+</div>
+    <!-- popup confirmation box -->
+    <div id="confirmation-popup" class="confirmation-popup">
+        <div class="confirmation-popup-content">
+            <span class="confirmation-popup-close">&times;</span>
+            <h3>Confirmation</h3>
+            <p>Your reservation has been confirmed!</p>
+            <br>
+            <br>
+            <h3><b>Reservation Details:</b></h3>
+            <br>
+            <ul>
+            <li>Date: <span id="confirmation-date"></span></li>
+            <li>Time: <span id="confirmation-time"></span></li>
+            <li>Guests: <span id="confirmation-party-size"></span></li>
+            <li>Reservation Type: <span id="confirmation-party-type"></span></li>
+            <li>Voucher Code: <span id="confirmation-voucher"></span></li>
+            </ul>
+        </div>
+    </div>
+    
+</section>
+
+<script>
+  // Get the popup elements
+  var reservationPopup = document.getElementById("reservation-popup");
+  var confirmationPopup = document.getElementById("confirmation-popup");
+
+  // Get the buttons that open the popups
+  var reserveBtn = document.getElementsByClassName("reserve-btn")[0];
+  var continueBtn = document.getElementById("continue-btn");
+
+  // Get the close buttons
+  var reservationClose = document.getElementsByClassName("reservation-popup-close")[0];
+  var confirmationClose = document.getElementsByClassName("confirmation-popup-close")[0];
+
+  // When the user clicks on the reserve button, open the reservation popup
+  reserveBtn.onclick = function() {
+    reservationPopup.style.display = "block";
+  }
+
+  // When the user clicks on the continue button, close the reservation popup and open the confirmation popup
+  continueBtn.onclick = function() {
+    // Get the input values from the reservation form
+    var dateInput = document.getElementById("date");
+    var timeInput = document.getElementById("time");
+    var partySizeInput = document.getElementById("party-size");
+    var partyTypeInput = document.getElementById("party-type");
+    var voucherInput = document.getElementById("voucher");
+
+    // Create an object with the input values
+    var booking = {
+      resname: "Firefly Roofdeck Restaurant",
+      status: "pending",
+      canreason: "na",
+      date: dateInput.value,
+      time: timeInput.value,
+      guestcount: partySizeInput.value,
+      reservationtype: partyTypeInput.value,
+      vouchercode: voucherInput.value
+    };
+
+    // Send the booking object to the server to add a booking
+    fetch('/bookings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(booking)
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Booking added successfully:', data);
+    })
+    .catch(error => {
+      console.error('Error adding booking:', error);
+    });
+
+    // Get the confirmation span elements
+    var confirmationDate = document.getElementById("confirmation-date");
+    var confirmationTime = document.getElementById("confirmation-time");
+    var confirmationPartySize = document.getElementById("confirmation-party-size");
+    var confirmationPartyType = document.getElementById("confirmation-party-type");
+    var confirmationVoucher = document.getElementById("confirmation-voucher");
+
+    // Update the confirmation spans with the input values
+    confirmationDate.innerHTML = dateInput.value;
+    confirmationTime.innerHTML = timeInput.value;
+    confirmationPartySize.innerHTML = partySizeInput.value;
+    confirmationPartyType.innerHTML = partyTypeInput.value;
+    confirmationVoucher.innerHTML = voucherInput.value;
+
+    // Close the reservation popup and open the confirmation popup
+    reservationPopup.style.display = "none";
+    confirmationPopup.style.display = "block";
+  }
+
+  // When the user clicks on the close button, close the reservation popup
+  reservationClose.onclick = function() {
+    reservationPopup.style.display = "none";
+  }
+
+  // When the user clicks on the close button, close the confirmation popup
+  confirmationClose.onclick = function() {
+    confirmationPopup.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the popups, close them
+  window.onclick = function(event) {
+    if (event.target == reservationPopup) {
+      reservationPopup.style.display = "none";
+    }
+    else if (event.target == confirmationPopup) {
+      confirmationPopup.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
